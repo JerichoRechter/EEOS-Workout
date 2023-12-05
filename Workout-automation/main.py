@@ -4,7 +4,9 @@ import smtplib
 
 import datetime
 
-
+## Every single  move in the rotationXworkout dictionary, and the  respective function must match perfectly
+## letter to letter and to order or you will have
+## Glitches in the sent message!
 rotation1workout={"Bench Press 3x10":"",
                   "Dumbell Shoulder Press 3x10":"",
                   "Dip 2x12":"",
@@ -226,11 +228,16 @@ elif rotationinput==5:
 f = open("dict.txt", "r")
 x=f.read()
 print(x)
-my_email="breakdown460@gmail.com" # this is where you wnt
-password="vmeo lqrp rwjv spjs"
+
+
+my_email="breakdown460@gmail.com" # this is where the message will be sent from
+password=""   # If you are using google to send the mail, you need to get some sort of  smtplib password to send 
+              # mails with it. Just ask on the stackoverflow and you'll find an answer.
+# If you need to quickly test this program, send me an email to the above email and I will give you my own password.
 connection=smtplib.SMTP_SSL("smtp.gmail.com")
 
 
 connection.login(user=my_email,password=password)
 connection.sendmail(from_addr=my_email,to_addrs="mehmetefekasar34@icloud.com",msg=f"Subject:Rotation {rotationinput} report\n\n{x} ")
+## Above line decides where the email will be sent to.
 connection.close()
